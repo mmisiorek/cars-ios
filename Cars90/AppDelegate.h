@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIManager.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    APIManager *_apiManager;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDictionary *defaults;
 
 -(NSString*) getSettingForKey:(NSString*)key;
 -(void) registerDefaultsFromSettingBundle;
-
+-(APIManager*) apiManagerWithForceUpdate: (BOOL) forceUpdate;
 
 @end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12B39B5579990069058E92CD /* Pods_Cars90UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8548082A35495425C69C2069 /* Pods_Cars90UITests.framework */; };
 		6714B9BF1C0CE5C000289487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9BE1C0CE5C000289487 /* main.m */; };
 		6714B9C21C0CE5C000289487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9C11C0CE5C000289487 /* AppDelegate.m */; };
 		6714B9C51C0CE5C000289487 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9C41C0CE5C000289487 /* ViewController.m */; };
@@ -14,14 +15,16 @@
 		6714B9D81C0CE5C000289487 /* Cars90Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9D71C0CE5C000289487 /* Cars90Tests.m */; };
 		6714B9E31C0CE5C000289487 /* Cars90UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9E21C0CE5C000289487 /* Cars90UITests.m */; };
 		6714B9F21C0CE6A300289487 /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9F11C0CE6A300289487 /* CarsTableViewController.m */; };
+		6718A6DC1C90B70200EC7DDD /* DocumentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6718A6DB1C90B70200EC7DDD /* DocumentModel.m */; };
 		672AAF471C10E4BA0045044C /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672AAF461C10E4BA0045044C /* MainTabBarViewController.m */; };
 		67309B4D1C1CE04000581696 /* CarDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67309B4B1C1CE04000581696 /* CarDetailsViewController.m */; };
 		67309B4E1C1CE04000581696 /* CarDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */; };
 		674906751C1A20C900FAE6FC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 674906741C1A20C900FAE6FC /* Settings.bundle */; };
-		678DF5F01C26C21200936575 /* Cars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 678DF5EE1C26C21200936575 /* Cars.xcdatamodeld */; };
-		678DF5F51C26E3B000936575 /* Car+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 678DF5F21C26E3B000936575 /* Car+CoreDataProperties.m */; };
-		678DF5F61C26E3B000936575 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 678DF5F41C26E3B000936575 /* Car.m */; };
-		9C6C17A7B3CD12593F62662B /* libPods-Cars90.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A610043D22EA24FF446CEA94 /* libPods-Cars90.a */; };
+		67A7E3541C834DCF00CDB4A1 /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7E3531C834DCF00CDB4A1 /* CarModel.m */; };
+		67A7E3571C8351C800CDB4A1 /* CarsResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */; };
+		67A7E35A1C835B1C00CDB4A1 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7E3591C835B1C00CDB4A1 /* APIManager.m */; };
+		978D44822A949691BCC9F02E /* Pods_Cars90Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20AF1A35DCC79796EE5B87E /* Pods_Cars90Tests.framework */; };
+		D3F4A10AF50208B16E2CF14F /* Pods_Cars90.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137E9CBA801BB63A7F9D1D0 /* Pods_Cars90.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D08F05D33D797C57AE16692 /* Pods-Cars90.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90/Pods-Cars90.debug.xcconfig"; sourceTree = "<group>"; };
+		2B03B975F16C8E38184AE534 /* Pods-Cars90Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90Tests/Pods-Cars90Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6714B9BA1C0CE5C000289487 /* Cars90.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cars90.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6714B9BE1C0CE5C000289487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6714B9C01C0CE5C000289487 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6714B9C11C0CE5C000289487 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6714B9C11C0CE5C000289487 /* AppDelegate.m */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6714B9C31C0CE5C000289487 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6714B9C41C0CE5C000289487 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6714B9C91C0CE5C000289487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,19 +62,28 @@
 		6714B9E41C0CE5C000289487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6714B9F01C0CE6A300289487 /* CarsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsTableViewController.h; sourceTree = "<group>"; };
 		6714B9F11C0CE6A300289487 /* CarsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarsTableViewController.m; sourceTree = "<group>"; };
+		6718A6DA1C90B70200EC7DDD /* DocumentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentModel.h; sourceTree = "<group>"; };
+		6718A6DB1C90B70200EC7DDD /* DocumentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentModel.m; sourceTree = "<group>"; };
 		672AAF451C10E4BA0045044C /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		672AAF461C10E4BA0045044C /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		67309B4A1C1CE04000581696 /* CarDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarDetailsViewController.h; path = ../CarDetailsViewController.h; sourceTree = "<group>"; };
 		67309B4B1C1CE04000581696 /* CarDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarDetailsViewController.m; path = ../CarDetailsViewController.m; sourceTree = "<group>"; };
 		67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CarDetailsViewController.xib; path = ../CarDetailsViewController.xib; sourceTree = "<group>"; };
 		674906741C1A20C900FAE6FC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		678DF5EF1C26C21200936575 /* Cars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cars.xcdatamodel; sourceTree = "<group>"; };
-		678DF5F11C26E3B000936575 /* Car+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Car+CoreDataProperties.h"; sourceTree = "<group>"; };
-		678DF5F21C26E3B000936575 /* Car+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Car+CoreDataProperties.m"; sourceTree = "<group>"; };
-		678DF5F31C26E3B000936575 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
-		678DF5F41C26E3B000936575 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
-		A610043D22EA24FF446CEA94 /* libPods-Cars90.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cars90.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF8161B5053969E97144A19B /* Pods-Cars90.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90/Pods-Cars90.release.xcconfig"; sourceTree = "<group>"; };
+		67A7E3521C834DCF00CDB4A1 /* CarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
+		67A7E3531C834DCF00CDB4A1 /* CarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModel.m; sourceTree = "<group>"; };
+		67A7E3551C8351C800CDB4A1 /* CarsResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsResponseModel.h; sourceTree = "<group>"; };
+		67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarsResponseModel.m; sourceTree = "<group>"; };
+		67A7E3581C835B1C00CDB4A1 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		67A7E3591C835B1C00CDB4A1 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		6D3EA547B62B68F1EC3115A3 /* Pods-Cars90.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90/Pods-Cars90.release.xcconfig"; sourceTree = "<group>"; };
+		8548082A35495425C69C2069 /* Pods_Cars90UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cars90UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EBE15811EC082E130CAEBD2 /* Pods-Cars90UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90UITests/Pods-Cars90UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A20AF1A35DCC79796EE5B87E /* Pods_Cars90Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cars90Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB80E24B74D3E4E2F184A0F /* Pods-Cars90Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90Tests/Pods-Cars90Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C137E9CBA801BB63A7F9D1D0 /* Pods_Cars90.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cars90.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95758A45AD5A8CFD78C2510 /* Pods-Cars90UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90UITests/Pods-Cars90UITests.release.xcconfig"; sourceTree = "<group>"; };
+		F2AED7837AF048045AE2551E /* Pods-Cars90.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90/Pods-Cars90.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C6C17A7B3CD12593F62662B /* libPods-Cars90.a in Frameworks */,
+				D3F4A10AF50208B16E2CF14F /* Pods_Cars90.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978D44822A949691BCC9F02E /* Pods_Cars90Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B39B5579990069058E92CD /* Pods_Cars90UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +121,8 @@
 				6714B9D61C0CE5C000289487 /* Cars90Tests */,
 				6714B9E11C0CE5C000289487 /* Cars90UITests */,
 				6714B9BB1C0CE5C000289487 /* Products */,
-				9B92FA4570171194064FA2E6 /* Pods */,
-				CB025B3B5B22D56C71A8B881 /* Frameworks */,
+				679E5472C30B356C266C3AA5 /* Pods */,
+				8C51DA8C4D84A28C90999DF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,11 +142,6 @@
 				67309B4A1C1CE04000581696 /* CarDetailsViewController.h */,
 				67309B4B1C1CE04000581696 /* CarDetailsViewController.m */,
 				67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */,
-				678DF5EE1C26C21200936575 /* Cars.xcdatamodeld */,
-				678DF5F11C26E3B000936575 /* Car+CoreDataProperties.h */,
-				678DF5F21C26E3B000936575 /* Car+CoreDataProperties.m */,
-				678DF5F31C26E3B000936575 /* Car.h */,
-				678DF5F41C26E3B000936575 /* Car.m */,
 				6714B9F01C0CE6A300289487 /* CarsTableViewController.h */,
 				6714B9F11C0CE6A300289487 /* CarsTableViewController.m */,
 				6714B9C01C0CE5C000289487 /* AppDelegate.h */,
@@ -145,6 +154,14 @@
 				672AAF451C10E4BA0045044C /* MainTabBarViewController.h */,
 				672AAF461C10E4BA0045044C /* MainTabBarViewController.m */,
 				674906741C1A20C900FAE6FC /* Settings.bundle */,
+				67A7E3521C834DCF00CDB4A1 /* CarModel.h */,
+				67A7E3531C834DCF00CDB4A1 /* CarModel.m */,
+				67A7E3551C8351C800CDB4A1 /* CarsResponseModel.h */,
+				67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */,
+				67A7E3581C835B1C00CDB4A1 /* APIManager.h */,
+				67A7E3591C835B1C00CDB4A1 /* APIManager.m */,
+				6718A6DA1C90B70200EC7DDD /* DocumentModel.h */,
+				6718A6DB1C90B70200EC7DDD /* DocumentModel.m */,
 			);
 			path = Cars90;
 			sourceTree = "<group>";
@@ -175,19 +192,25 @@
 			path = Cars90UITests;
 			sourceTree = "<group>";
 		};
-		9B92FA4570171194064FA2E6 /* Pods */ = {
+		679E5472C30B356C266C3AA5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D08F05D33D797C57AE16692 /* Pods-Cars90.debug.xcconfig */,
-				CF8161B5053969E97144A19B /* Pods-Cars90.release.xcconfig */,
+				F2AED7837AF048045AE2551E /* Pods-Cars90.debug.xcconfig */,
+				6D3EA547B62B68F1EC3115A3 /* Pods-Cars90.release.xcconfig */,
+				ABB80E24B74D3E4E2F184A0F /* Pods-Cars90Tests.debug.xcconfig */,
+				2B03B975F16C8E38184AE534 /* Pods-Cars90Tests.release.xcconfig */,
+				9EBE15811EC082E130CAEBD2 /* Pods-Cars90UITests.debug.xcconfig */,
+				D95758A45AD5A8CFD78C2510 /* Pods-Cars90UITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CB025B3B5B22D56C71A8B881 /* Frameworks */ = {
+		8C51DA8C4D84A28C90999DF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A610043D22EA24FF446CEA94 /* libPods-Cars90.a */,
+				C137E9CBA801BB63A7F9D1D0 /* Pods_Cars90.framework */,
+				A20AF1A35DCC79796EE5B87E /* Pods_Cars90Tests.framework */,
+				8548082A35495425C69C2069 /* Pods_Cars90UITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,12 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6714B9E71C0CE5C000289487 /* Build configuration list for PBXNativeTarget "Cars90" */;
 			buildPhases = (
-				0FE926A61C2CA22938643ABB /* Check Pods Manifest.lock */,
+				CD4990F5C8B2E197C184F908 /* Check Pods Manifest.lock */,
 				6714B9B61C0CE5C000289487 /* Sources */,
 				6714B9B71C0CE5C000289487 /* Frameworks */,
 				6714B9B81C0CE5C000289487 /* Resources */,
-				95F95E3B0688DA8581AD2143 /* Embed Pods Frameworks */,
-				6B5EE3513F8744534C9CB0EF /* Copy Pods Resources */,
+				E10E878FFD36266344C03B5E /* Embed Pods Frameworks */,
+				3E876FAB027C3C10B11D39C7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6714B9EA1C0CE5C000289487 /* Build configuration list for PBXNativeTarget "Cars90Tests" */;
 			buildPhases = (
+				307F8E3BA0407565E65555C1 /* Check Pods Manifest.lock */,
 				6714B9CF1C0CE5C000289487 /* Sources */,
 				6714B9D01C0CE5C000289487 /* Frameworks */,
 				6714B9D11C0CE5C000289487 /* Resources */,
+				14711732CDAA70435582E3AA /* Embed Pods Frameworks */,
+				E8634190B0AF9752D73E0489 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6714B9ED1C0CE5C000289487 /* Build configuration list for PBXNativeTarget "Cars90UITests" */;
 			buildPhases = (
+				8133F78890B742403A38E6ED /* Check Pods Manifest.lock */,
 				6714B9DA1C0CE5C000289487 /* Sources */,
 				6714B9DB1C0CE5C000289487 /* Frameworks */,
 				6714B9DC1C0CE5C000289487 /* Resources */,
+				A51EA79FB84A5D552AB84118 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,7 +352,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FE926A61C2CA22938643ABB /* Check Pods Manifest.lock */ = {
+		14711732CDAA70435582E3AA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cars90Tests/Pods-Cars90Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		307F8E3BA0407565E65555C1 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,7 +382,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		6B5EE3513F8744534C9CB0EF /* Copy Pods Resources */ = {
+		3E876FAB027C3C10B11D39C7 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -354,7 +397,52 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cars90/Pods-Cars90-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95F95E3B0688DA8581AD2143 /* Embed Pods Frameworks */ = {
+		8133F78890B742403A38E6ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A51EA79FB84A5D552AB84118 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cars90UITests/Pods-Cars90UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD4990F5C8B2E197C184F908 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E10E878FFD36266344C03B5E /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -369,6 +457,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cars90/Pods-Cars90-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E8634190B0AF9752D73E0489 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cars90Tests/Pods-Cars90Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -376,15 +479,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				678DF5F61C26E3B000936575 /* Car.m in Sources */,
-				678DF5F01C26C21200936575 /* Cars.xcdatamodeld in Sources */,
 				6714B9F21C0CE6A300289487 /* CarsTableViewController.m in Sources */,
 				6714B9C51C0CE5C000289487 /* ViewController.m in Sources */,
+				67A7E35A1C835B1C00CDB4A1 /* APIManager.m in Sources */,
 				67309B4D1C1CE04000581696 /* CarDetailsViewController.m in Sources */,
-				678DF5F51C26E3B000936575 /* Car+CoreDataProperties.m in Sources */,
+				6718A6DC1C90B70200EC7DDD /* DocumentModel.m in Sources */,
 				672AAF471C10E4BA0045044C /* MainTabBarViewController.m in Sources */,
 				6714B9C21C0CE5C000289487 /* AppDelegate.m in Sources */,
+				67A7E3541C834DCF00CDB4A1 /* CarModel.m in Sources */,
 				6714B9BF1C0CE5C000289487 /* main.m in Sources */,
+				67A7E3571C8351C800CDB4A1 /* CarsResponseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +608,7 @@
 		};
 		6714B9E81C0CE5C000289487 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D08F05D33D797C57AE16692 /* Pods-Cars90.debug.xcconfig */;
+			baseConfigurationReference = F2AED7837AF048045AE2551E /* Pods-Cars90.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cars90/Info.plist;
@@ -516,7 +620,7 @@
 		};
 		6714B9E91C0CE5C000289487 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF8161B5053969E97144A19B /* Pods-Cars90.release.xcconfig */;
+			baseConfigurationReference = 6D3EA547B62B68F1EC3115A3 /* Pods-Cars90.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cars90/Info.plist;
@@ -528,6 +632,7 @@
 		};
 		6714B9EB1C0CE5C000289487 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABB80E24B74D3E4E2F184A0F /* Pods-Cars90Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Cars90Tests/Info.plist;
@@ -540,6 +645,7 @@
 		};
 		6714B9EC1C0CE5C000289487 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B03B975F16C8E38184AE534 /* Pods-Cars90Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Cars90Tests/Info.plist;
@@ -552,6 +658,7 @@
 		};
 		6714B9EE1C0CE5C000289487 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EBE15811EC082E130CAEBD2 /* Pods-Cars90UITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Cars90UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -564,6 +671,7 @@
 		};
 		6714B9EF1C0CE5C000289487 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D95758A45AD5A8CFD78C2510 /* Pods-Cars90UITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Cars90UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -614,19 +722,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		678DF5EE1C26C21200936575 /* Cars.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				678DF5EF1C26C21200936575 /* Cars.xcdatamodel */,
-			);
-			currentVersion = 678DF5EF1C26C21200936575 /* Cars.xcdatamodel */;
-			path = Cars.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6714B9B21C0CE5C000289487 /* Project object */;
 }

@@ -9,8 +9,8 @@
 #import "CarsTableViewController.h"
 #import "AppDelegate.h"
 #import "CarDetailsViewController.h"
-#import <RestKit/RestKit.h>
-
+#import "APIManager.h"
+#import "CarModel.h"
 
 @interface CarsTableViewController ()
 
@@ -38,15 +38,54 @@
     
     self.navigationItem.title = @"My Title";
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/cars.json", [self getServerLocation]]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [[appDelegate apiManagerWithForceUpdate:NO] fetchAllCarsWithSuccess:^(CarsResponseModel *responseModel) {
+        self.cars = responseModel.cars;
+        
+        UITableView* tableView = (UITableView*) self.view;
+        [tableView reloadData];
+        
+    } andFailure:^(NSError *error) {
+        NSMutableString *str = [[NSMutableString alloc] initWithString:@"There was an error with a connection: "];
+        [str appendString:error.localizedDescription];
+        
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Connecion problem" message:[NSString stringWithString:str] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [view show];
+    }];
     
-    self.carsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    UIBarButtonItem *buttomItem = [[UIBarButtonItem alloc] initWithTitle:@"Update" style:UIBarButtonItemStyleDone target:self action:@selector(onUpdateClicked:)];
+    [self.navigationItem setRightBarButtonItem:buttomItem];
+//    NSString *serverLocation = [self getServerLocation];
+//    
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/cars.json", serverLocation]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//        
+//    self.carsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)onUpdateClicked:(id) sender {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Updating" message:@"The cars are updating" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [[appDelegate apiManagerWithForceUpdate:YES] fetchAllCarsWithSuccess:^(CarsResponseModel *responseModel) {
+        self.cars = responseModel.cars;
+        
+        UITableView *tableView = (UITableView*) self.view;
+        [tableView reloadData];
+        
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+    } andFailure:^(NSError *error) {
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        
+        UIAlertView *alertFailure = [[UIAlertView alloc] initWithTitle:@"Problem with update" message:@"There was a problem with updating cars" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alertFailure show];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,13 +114,15 @@
     }
     
     if (self.cars) {
-        NSDictionary *car = self.cars[indexPath.row];
+        CarModel *car = self.cars[indexPath.row];
         
-        NSString *header = @"Car #";
-        NSString *brand = [car objectForKey:@"brand"];
-        NSString *model = [car objectForKey:@"model"];
-        
-        cell.textLabel.text = [header stringByAppendingFormat:@"%d %@ %@", ((int) indexPath.row)+1, brand, model];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", car.brand, car.model];
+//        
+//        NSString *header = @"Car #";
+//        NSString *brand = [car objectForKey:@"brand"];
+//        NSString *model = [car objectForKey:@"model"];
+//        
+//        cell.textLabel.text = [header stringByAppendingFormat:@"%d %@ %@", ((int) indexPath.row)+1, brand, model];
         
     } else {
         cell.textLabel.text = @"No data loaded...";
@@ -115,12 +156,6 @@
     
     NSLog(@"%@", responseString);
     
-    if(!error || data.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OK" message:error.localizedDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
-    }
-    
     self.cars = json;
     
     UITableView* tableView = (UITableView*) self.view;
@@ -134,21 +169,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection problem" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alert show];
-}
-
-
-- (NSString*)getServerLocation {
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSString *serverLocation = [app getSettingForKey:@"serverLocation"];
-    
-    NSError *error = NULL;
-    NSRegularExpression *expr = [NSRegularExpression regularExpressionWithPattern:@"^(http|https)" options:NSRegularExpressionCaseInsensitive error:&error];
-    
-    if([expr numberOfMatchesInString:serverLocation options:0 range:NSMakeRange(0, [serverLocation length])] == 0) {
-        serverLocation = [NSString stringWithFormat:@"http://%@", serverLocation];
-    }
-    
-    return serverLocation;
 }
 
 

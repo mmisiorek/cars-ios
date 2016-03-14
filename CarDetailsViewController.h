@@ -7,14 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CarModel.h"
 
 @interface CarDetailsViewController : UIViewController
 
-@property (strong, nonatomic) NSDictionary *carData;
+@property (strong, nonatomic) CarModel *carModel;
 
 @property (weak) IBOutlet UILabel *brandLabel;
 @property (weak) IBOutlet UILabel *modelLabel;
+@property (weak) IBOutlet UILabel *manufacturedDateLabel;
+@property (weak) IBOutlet UIImageView *carPhoto;
+@property (weak) IBOutlet UIScrollView *scrollView;
+@property (weak) IBOutlet UIView *contentView;
 
-- (id)initWithCarData:(NSDictionary*)carData;
+- (id)initWithCarData:(NSDictionary*)carModel;
+- (NSDateFormatter*) dateFormatter;
 
 @end

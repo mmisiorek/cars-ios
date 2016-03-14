@@ -83,4 +83,14 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
 }
 
+- (APIManager*) apiManagerWithForceUpdate:(BOOL) forceUpdate {
+     if(!self->_apiManager || forceUpdate) {
+          NSString *localization = [self getSettingForKey:@"serverLocation"];
+          
+          self->_apiManager = [[APIManager alloc] initWithURL: localization];
+     }
+     
+     return self->_apiManager;
+}
+
 @end

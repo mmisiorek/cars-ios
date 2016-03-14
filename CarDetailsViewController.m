@@ -7,6 +7,7 @@
 //
 
 #import "CarDetailsViewController.h"
+#import "AppDelegate.h"
 
 @interface CarDetailsViewController ()
 
@@ -14,10 +15,10 @@
 
 @implementation CarDetailsViewController
 
-- (id)initWithCarData:(NSDictionary *)carData {
+- (id)initWithCarData:(CarModel*) carModel {
     self = [super init];
     
-    self.carData = carData;
+    self.carModel = carModel;
     
     return self;
 }
@@ -25,19 +26,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self updateScrollView];
     
-    NSString *brand = [self.carData objectForKey:@"brand"];
-    NSString *model = [self.carData objectForKey:@"model"];
-
+    NSString *brand = self.carModel.brand;
+    NSString *model = self.carModel.model;
+    
     [self.modelLabel setText:model];
     [self.brandLabel setText:brand];
+    [self.manufacturedDateLabel setText: [[self dateFormatter] stringFromDate:self.carModel.manufacturedDate]];
     
-    self.navigationItem.title = [NSString stringWithFormat:@"Details of %@ %@", brand, model]; 
+    self.carPhoto.contentMode = UIViewContentModeScaleAspectFit;
+    self.navigationItem.title = [NSString stringWithFormat:@"Details of %@ %@", brand, model];
+    
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
+    if(self.carModel.photo) {
+        NSLog(@"my love %@", self.carModel.manufacturedDate);
+        
+        [[appDelegate apiManagerWithForceUpdate:NO] fetchImageForCar:self.carModel withSuccess:^(UIImage *image) {
+            
+            CGRect rect = CGRectMake(0,0,image.size.width, image.size.height);
+            
+            [self.carPhoto setFrame:rect];
+            [self.carPhoto setImage:image];
+            [self.carPhoto setNeedsUpdateConstraints];
+            [self.carPhoto updateConstraints];
+            
+        } andFailure:^(NSError *error) {
+            NSLog(@"We have an error");
+        }];
+    }
+}
+
+- (void) updateScrollView {
+    [self.scrollView addSubview:self.contentView];
+    [self.scrollView setContentSize:CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height+200)];
+    
+    NSLog(@"The size is: %f", self.contentView.bounds.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSDateFormatter*) dateFormatter {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    return formatter;
 }
 
 /*
