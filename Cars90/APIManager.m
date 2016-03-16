@@ -45,14 +45,18 @@ static NSString *const carImagePath = @"";
     }];
 }
 
-- (NSURLSessionTask*) fetchImageForCar:(CarModel*)car withSuccess:(void (^)(UIImage *image))success
+- (NSURLSessionTask*) fetchImageForCar:(CarModel*)car andWidth: (NSInteger)width andHeight: (NSInteger)height withSuccess:(void (^)(UIImage *image))success
                             andFailure:(void (^)(NSError *error))failure {
     
-    NSString *url = [NSString stringWithFormat:@"/document/%i/%@/%i/%i", (int)car.photo.networkId, car.photo.token, 300, 300];
+    NSString *url = [NSString stringWithFormat:@"/document/%i/%@/%d/%d", (int)car.photo.networkId, car.photo.token, (int)width, (int)height];
+    
+    NSLog(@"url: %@", url);
     
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
-    sessionManager.responseSerializer = [AFImageResponseSerializer serializer];
+    AFImageResponseSerializer *serializer = [AFImageResponseSerializer serializer];
+    serializer.imageScale = 1;
+    sessionManager.responseSerializer = serializer;
     
     return [sessionManager GET:url parameters:NULL progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         UIImage *img = (UIImage*) responseObject;

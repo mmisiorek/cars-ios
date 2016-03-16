@@ -41,16 +41,16 @@
     AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     if(self.carModel.photo) {
-        NSLog(@"my love %@", self.carModel.manufacturedDate);
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        float imgWidth = screenRect.size.width*0.9;
+        NSLog(@"screen w : %f h : %f", screenRect.size.width, screenRect.size.height);
         
-        [[appDelegate apiManagerWithForceUpdate:NO] fetchImageForCar:self.carModel withSuccess:^(UIImage *image) {
+        [[appDelegate apiManagerWithForceUpdate:NO] fetchImageForCar:self.carModel andWidth:imgWidth andHeight:imgWidth withSuccess:^(UIImage *image) {
+            float leftMargin = (screenRect.size.width-image.size.width)/2;
             
-            CGRect rect = CGRectMake(0,0,image.size.width, image.size.height);
-            
+            CGRect rect = CGRectMake(leftMargin, 30, image.size.width, image.size.height);
             [self.carPhoto setFrame:rect];
             [self.carPhoto setImage:image];
-            [self.carPhoto setNeedsUpdateConstraints];
-            [self.carPhoto updateConstraints];
             
         } andFailure:^(NSError *error) {
             NSLog(@"We have an error");
@@ -59,8 +59,14 @@
 }
 
 - (void) updateScrollView {
+    CGRect mainScreenRect = [[UIScreen mainScreen] bounds];
+    
     [self.scrollView addSubview:self.contentView];
-    [self.scrollView setContentSize:CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height+200)];
+    [self.scrollView setContentSize:CGSizeMake(mainScreenRect.size.width, self.contentView.bounds.size.height+200)];
+    
+    CGRect newContentFrame = CGRectMake(0, 0, mainScreenRect.size.width, self.contentView.bounds.size.height+200);
+    
+    [self.contentView setFrame:newContentFrame];
     
     NSLog(@"The size is: %f", self.contentView.bounds.size.height);
 }

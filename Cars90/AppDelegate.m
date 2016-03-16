@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainTabBarViewController.h"
 #import "ViewController.h"
+#import "CarsTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    MainTabBarViewController *tabController = [[MainTabBarViewController alloc] init];
+    CarsTableViewController *carController = [[CarsTableViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:carController];
     
-    [self.window setRootViewController:tabController];
+    [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
     
     return YES;

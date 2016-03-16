@@ -17,7 +17,7 @@
 - (NSURLSessionTask*) fetchAllCarsWithSuccess: (void (^)(CarsResponseModel *responseModel)) success
                                    andFailure: (void (^)(NSError *error)) failure;
 
-- (NSURLSessionTask*) fetchImageForCar:(CarModel*) carModel withSuccess:(void (^)(UIImage *image)) success
+- (NSURLSessionTask*) fetchImageForCar:(CarModel*) carModel andWidth:(NSInteger) width andHeight:(NSInteger) height withSuccess:(void (^)(UIImage *image)) success
                             andFailure: (void (^)(NSError *error)) failure;
 
 @end
