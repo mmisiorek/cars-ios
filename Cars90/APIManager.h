@@ -20,4 +20,6 @@
 - (NSURLSessionTask*) fetchImageForCar:(CarModel*) carModel andWidth:(NSInteger) width andHeight:(NSInteger) height withSuccess:(void (^)(UIImage *image)) success
                             andFailure: (void (^)(NSError *error)) failure;
 
+- (NSURLSessionTask*) saveCar:(CarModel*)car withError:(NSError*)error andSuccess: (void (^)(CarModel*))success andFailure: (void (^)(CarModel*, NSArray*))failure;
+
 @end

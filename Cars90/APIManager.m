@@ -32,10 +32,7 @@ static NSString *const carImagePath = @"";
         NSError* error = nil;
         
         NSDictionary* response = (NSDictionary*) responseObject;
-        NSLog(@"response: %@", response);
         CarsResponseModel* responseModel = [MTLJSONAdapter modelOfClass:CarsResponseModel.class fromJSONDictionary:response error:&error];
-        NSLog(@"model: %@ ", responseModel.cars);
-        NSLog(@"error: %@", error.localizedFailureReason);
         
         success(responseModel);
         
@@ -66,5 +63,70 @@ static NSString *const carImagePath = @"";
         failure(error);
     }];
 }
+
+- (NSURLSessionTask*) saveCar:(CarModel*)car withError:(NSError**)error andSuccess:(void (^)(CarModel*))success andFailure:(void (^)(CarModel*, NSArray *))failure {
+    NSArray *carArray = [MTLJSONAdapter JSONArrayFromModels:@[car] error:error];
+    
+    if(error != nil) {
+        return nil;
+    }
+    
+    if(car.myId != 0) {
+        NSDictionary *carDictionary = @{ @"car": [carArray objectAtIndex:0] };
+        NSString *url = [NSString stringWithFormat:@"/cars/%d.json", (int)car.myId];
+        
+        return [self PUT:url parameters:carDictionary success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *response = (NSDictionary*)responseObject;
+            
+            if([response objectForKey:@"success"]) {
+                success(car);
+            } else {
+                failure(car, [self errorArrayToArray:[response objectForKey:@"errors"]]);
+            }
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure(car, @[error]);
+        }];
+        
+    } else {
+        NSMutableDictionary *singleCarDictionary = [NSMutableDictionary dictionaryWithDictionary:[carArray objectAtIndex:0]];
+        [singleCarDictionary removeObjectForKey:@"id"];
+        NSDictionary *carDictionary = @{ @"car": [NSDictionary dictionaryWithDictionary:singleCarDictionary] };
+        
+        return [self POST:@"/cars.json" parameters:carDictionary success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *response = (NSDictionary*)responseObject;
+            
+            if([response objectForKey:@"success"]) {
+                success(car);
+                
+            } else {
+                failure(car, [self errorArrayToArray:[response objectForKey:@"errors"]]);
+            }
+            
+            NSLog(@"Save new object %@", response);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            NSArray *arr = @[error];
+            
+            failure(car, arr);
+            
+        }];
+        
+    }
+}
+
+- (NSArray*) errorArrayToArray:(NSArray*)arr {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    for(int i = 0; i < [arr count]; i++) {
+        NSDictionary *dic = @{ NSLocalizedDescriptionKey: [arr objectAtIndex:i]};
+        
+        [result addObject:[[NSError alloc] initWithDomain:@"API" code:0 userInfo:dic]];
+    }
+    
+    return [NSArray arrayWithArray:result];
+}
+
 
 @end

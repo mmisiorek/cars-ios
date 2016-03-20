@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MainTabBarViewController.h"
 #import "ViewController.h"
 #import "CarsTableViewController.h"
 
@@ -93,6 +92,14 @@
      }
      
      return self->_apiManager;
+}
+
+- (ImageManager*) imageManager {
+     if(!self->_imageManager) {
+          self->_imageManager = [[ImageManager alloc] init];
+     }
+     
+     return self->_imageManager;
 }
 
 @end

@@ -16,6 +16,9 @@
 @property (weak) IBOutlet UILabel *brandLabel;
 @property (weak) IBOutlet UILabel *modelLabel;
 @property (weak) IBOutlet UILabel *manufacturedDateLabel;
+@property (weak) IBOutlet UILabel *isAvailableLabel;
+@property (weak) IBOutlet UILabel *registrationNumberLabel;
+
 @property (weak) IBOutlet UIImageView *carPhoto;
 @property (weak) IBOutlet UIScrollView *scrollView;
 @property (weak) IBOutlet UIView *contentView;

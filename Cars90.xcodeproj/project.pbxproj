@@ -16,7 +16,9 @@
 		6714B9E31C0CE5C000289487 /* Cars90UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9E21C0CE5C000289487 /* Cars90UITests.m */; };
 		6714B9F21C0CE6A300289487 /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6714B9F11C0CE6A300289487 /* CarsTableViewController.m */; };
 		6718A6DC1C90B70200EC7DDD /* DocumentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6718A6DB1C90B70200EC7DDD /* DocumentModel.m */; };
-		672AAF471C10E4BA0045044C /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672AAF461C10E4BA0045044C /* MainTabBarViewController.m */; };
+		671D6ED81C9D63D3001D0037 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 671D6ED71C9D63D3001D0037 /* ImageManager.m */; };
+		671D6EE61C9DBA5A001D0037 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671D6EE41C9DBA5A001D0037 /* CarEditViewController.m */; };
+		671D6EE71C9DBA5A001D0037 /* CarEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671D6EE51C9DBA5A001D0037 /* CarEditViewController.xib */; };
 		67309B4D1C1CE04000581696 /* CarDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67309B4B1C1CE04000581696 /* CarDetailsViewController.m */; };
 		67309B4E1C1CE04000581696 /* CarDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */; };
 		674906751C1A20C900FAE6FC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 674906741C1A20C900FAE6FC /* Settings.bundle */; };
@@ -64,8 +66,11 @@
 		6714B9F11C0CE6A300289487 /* CarsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarsTableViewController.m; sourceTree = "<group>"; };
 		6718A6DA1C90B70200EC7DDD /* DocumentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentModel.h; sourceTree = "<group>"; };
 		6718A6DB1C90B70200EC7DDD /* DocumentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentModel.m; sourceTree = "<group>"; };
-		672AAF451C10E4BA0045044C /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
-		672AAF461C10E4BA0045044C /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		671D6ED61C9D63D3001D0037 /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		671D6ED71C9D63D3001D0037 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
+		671D6EE31C9DBA5A001D0037 /* CarEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarEditViewController.h; sourceTree = "<group>"; };
+		671D6EE41C9DBA5A001D0037 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
+		671D6EE51C9DBA5A001D0037 /* CarEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarEditViewController.xib; sourceTree = "<group>"; };
 		67309B4A1C1CE04000581696 /* CarDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarDetailsViewController.h; path = ../CarDetailsViewController.h; sourceTree = "<group>"; };
 		67309B4B1C1CE04000581696 /* CarDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarDetailsViewController.m; path = ../CarDetailsViewController.m; sourceTree = "<group>"; };
 		67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CarDetailsViewController.xib; path = ../CarDetailsViewController.xib; sourceTree = "<group>"; };
@@ -151,8 +156,6 @@
 				6714B9C91C0CE5C000289487 /* Assets.xcassets */,
 				6714B9CE1C0CE5C000289487 /* Info.plist */,
 				6714B9BD1C0CE5C000289487 /* Supporting Files */,
-				672AAF451C10E4BA0045044C /* MainTabBarViewController.h */,
-				672AAF461C10E4BA0045044C /* MainTabBarViewController.m */,
 				674906741C1A20C900FAE6FC /* Settings.bundle */,
 				67A7E3521C834DCF00CDB4A1 /* CarModel.h */,
 				67A7E3531C834DCF00CDB4A1 /* CarModel.m */,
@@ -162,6 +165,11 @@
 				67A7E3591C835B1C00CDB4A1 /* APIManager.m */,
 				6718A6DA1C90B70200EC7DDD /* DocumentModel.h */,
 				6718A6DB1C90B70200EC7DDD /* DocumentModel.m */,
+				671D6ED61C9D63D3001D0037 /* ImageManager.h */,
+				671D6ED71C9D63D3001D0037 /* ImageManager.m */,
+				671D6EE31C9DBA5A001D0037 /* CarEditViewController.h */,
+				671D6EE41C9DBA5A001D0037 /* CarEditViewController.m */,
+				671D6EE51C9DBA5A001D0037 /* CarEditViewController.xib */,
 			);
 			path = Cars90;
 			sourceTree = "<group>";
@@ -330,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				674906751C1A20C900FAE6FC /* Settings.bundle in Resources */,
+				671D6EE71C9DBA5A001D0037 /* CarEditViewController.xib in Resources */,
 				67309B4E1C1CE04000581696 /* CarDetailsViewController.xib in Resources */,
 				6714B9CA1C0CE5C000289487 /* Assets.xcassets in Resources */,
 			);
@@ -479,15 +488,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671D6ED81C9D63D3001D0037 /* ImageManager.m in Sources */,
 				6714B9F21C0CE6A300289487 /* CarsTableViewController.m in Sources */,
 				6714B9C51C0CE5C000289487 /* ViewController.m in Sources */,
 				67A7E35A1C835B1C00CDB4A1 /* APIManager.m in Sources */,
 				67309B4D1C1CE04000581696 /* CarDetailsViewController.m in Sources */,
 				6718A6DC1C90B70200EC7DDD /* DocumentModel.m in Sources */,
-				672AAF471C10E4BA0045044C /* MainTabBarViewController.m in Sources */,
 				6714B9C21C0CE5C000289487 /* AppDelegate.m in Sources */,
 				67A7E3541C834DCF00CDB4A1 /* CarModel.m in Sources */,
 				6714B9BF1C0CE5C000289487 /* main.m in Sources */,
+				671D6EE61C9DBA5A001D0037 /* CarEditViewController.m in Sources */,
 				67A7E3571C8351C800CDB4A1 /* CarsResponseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

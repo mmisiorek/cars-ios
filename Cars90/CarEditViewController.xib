@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarEditViewController">
+            <connections>
+                <outlet property="brandField" destination="rKA-xi-WKq" id="Jo1-O0-hla"/>
+                <outlet property="contentView" destination="VgF-I7-hVn" id="fsp-jN-zNh"/>
+                <outlet property="dateOfManufacturePicker" destination="KaF-ab-CLp" id="AyJ-TM-1ZU"/>
+                <outlet property="isAvailableSwitch" destination="dGb-vX-fzr" id="ujN-hT-WIV"/>
+                <outlet property="modelField" destination="jD0-qP-dIz" id="F5m-oJ-tVC"/>
+                <outlet property="registrationNumberField" destination="N3b-PO-t0a" id="Fzs-Fw-on4"/>
+                <outlet property="scrollView" destination="cxj-Bs-99e" id="3NK-a8-2vp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cxj-Bs-99e">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cxj-Bs-99e" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="JGT-y0-owN"/>
+                <constraint firstItem="cxj-Bs-99e" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="kKu-fb-t7j"/>
+            </constraints>
+            <point key="canvasLocation" x="506" y="284"/>
+        </view>
+        <view contentMode="scaleToFill" id="VgF-I7-hVn">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="829"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTy-VR-ccz">
+                    <rect key="frame" x="25" y="53" width="118" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKA-xi-WKq">
+                    <rect key="frame" x="25" y="110" width="556" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfb-yn-AUE">
+                    <rect key="frame" x="25" y="200" width="118" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date of manufacture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-o6-8ni">
+                    <rect key="frame" x="25" y="349" width="158" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-ab-CLp">
+                    <rect key="frame" x="25" y="407" width="428" height="49"/>
+                    <date key="date" timeIntervalSinceReferenceDate="480106500.94567698">
+                        <!--2016-03-19 18:55:00 +0000-->
+                    </date>
+                </datePicker>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jD0-qP-dIz">
+                    <rect key="frame" x="25" y="262" width="556" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Registration number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-mq-DrJ">
+                    <rect key="frame" x="25" y="513" width="155" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3b-PO-t0a">
+                    <rect key="frame" x="25" y="574" width="556" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Is Available?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNL-NV-abd">
+                    <rect key="frame" x="25" y="661" width="244" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGb-vX-fzr">
+                    <rect key="frame" x="532" y="656" width="51" height="31"/>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Jca-mq-DrJ" firstAttribute="top" secondItem="KaF-ab-CLp" secondAttribute="bottom" constant="57" id="1RW-8q-HtB"/>
+                <constraint firstItem="zfb-yn-AUE" firstAttribute="top" secondItem="rKA-xi-WKq" secondAttribute="bottom" constant="60" id="295-GP-2j0"/>
+                <constraint firstAttribute="trailing" secondItem="dGb-vX-fzr" secondAttribute="trailing" constant="20" id="GbZ-Y3-pPT"/>
+                <constraint firstAttribute="trailing" secondItem="jD0-qP-dIz" secondAttribute="trailing" constant="20" id="HLk-rC-eMn"/>
+                <constraint firstItem="dGb-vX-fzr" firstAttribute="top" secondItem="N3b-PO-t0a" secondAttribute="bottom" constant="52" id="Ma1-mC-6uf"/>
+                <constraint firstItem="N3b-PO-t0a" firstAttribute="leading" secondItem="VgF-I7-hVn" secondAttribute="leading" constant="25" id="Q1U-H4-6nD"/>
+                <constraint firstItem="rKA-xi-WKq" firstAttribute="top" secondItem="fTy-VR-ccz" secondAttribute="bottom" constant="36" id="Uev-Du-zOK"/>
+                <constraint firstAttribute="trailing" secondItem="rKA-xi-WKq" secondAttribute="trailing" constant="20" id="Xe3-ba-29n"/>
+                <constraint firstItem="Bya-o6-8ni" firstAttribute="top" secondItem="jD0-qP-dIz" secondAttribute="bottom" constant="57" id="Y7g-lq-VRy"/>
+                <constraint firstItem="KaF-ab-CLp" firstAttribute="leading" secondItem="VgF-I7-hVn" secondAttribute="leading" constant="15" id="l6L-dF-fLt"/>
+                <constraint firstAttribute="trailing" secondItem="KaF-ab-CLp" secondAttribute="trailing" constant="150" id="leh-gg-IJ9"/>
+                <constraint firstItem="jD0-qP-dIz" firstAttribute="top" secondItem="zfb-yn-AUE" secondAttribute="bottom" constant="41" id="mbb-1N-QQA"/>
+                <constraint firstItem="N3b-PO-t0a" firstAttribute="top" secondItem="Jca-mq-DrJ" secondAttribute="bottom" constant="41" id="reH-UD-LW0"/>
+                <constraint firstItem="KaF-ab-CLp" firstAttribute="width" secondItem="VgF-I7-hVn" secondAttribute="width" id="vX6-8t-kni"/>
+                <constraint firstItem="RNL-NV-abd" firstAttribute="top" secondItem="N3b-PO-t0a" secondAttribute="bottom" constant="57" id="wK9-gf-oBJ"/>
+                <constraint firstItem="KaF-ab-CLp" firstAttribute="top" secondItem="Bya-o6-8ni" secondAttribute="bottom" constant="37" id="ywm-ab-m67"/>
+                <constraint firstAttribute="trailing" secondItem="N3b-PO-t0a" secondAttribute="trailing" constant="20" id="zpS-04-2kV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="1170" y="414.5"/>
+        </view>
+    </objects>
+</document>

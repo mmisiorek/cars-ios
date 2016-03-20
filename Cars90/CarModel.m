@@ -21,14 +21,15 @@
 
 + (NSDictionary*)JSONKeyPathsByPropertyKey {
     return @{
-             //@"networkId": @"id",
+             @"myId": @"id",
              @"createdAt": @"created_at",
              @"updatedAt": @"updated_at",
              @"brand": @"brand",
              @"model": @"model",
              @"manufacturedDate": @"manufactured_date",
              @"registrationNumber": @"registration_number",
-             @"photo": @"photo"
+             @"photo": @"photo", 
+             @"isAvailable": @"is_available"
              };
 }
 

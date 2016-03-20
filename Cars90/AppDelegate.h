@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "APIManager.h"
+#import "ImageManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     APIManager *_apiManager;
+    ImageManager *_imageManager;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -19,6 +21,7 @@
 -(NSString*) getSettingForKey:(NSString*)key;
 -(void) registerDefaultsFromSettingBundle;
 -(APIManager*) apiManagerWithForceUpdate: (BOOL) forceUpdate;
+-(ImageManager*) imageManager; 
 
 @end
 

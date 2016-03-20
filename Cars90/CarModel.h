@@ -13,7 +13,7 @@
 
 @interface CarModel : MTLModel <MTLJSONSerializing>
 
-//@property(nonatomic) NSInteger *networkId;
+@property(nonatomic) NSInteger myId;
 
 @property(copy, nonatomic) NSDate *createdAt;
 @property(copy, nonatomic) NSDate *updatedAt;
@@ -22,6 +22,7 @@
 @property(copy, nonatomic) NSDate *manufacturedDate;
 @property(copy, nonatomic) NSString *registrationNumber;
 @property(copy, nonatomic) DocumentModel *photo;
-//@property(nonatomic) BOOL isAvailable;
+@property(nonatomic) BOOL isAvailable;
+
 
 @end
