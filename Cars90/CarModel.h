@@ -10,6 +10,7 @@
 #import "Mantle.h"
 #import "MTLModel.h"
 #import "DocumentModel.h"
+#import "DocumentBase64Model.h"
 
 @interface CarModel : MTLModel <MTLJSONSerializing>
 
@@ -22,6 +23,7 @@
 @property(copy, nonatomic) NSDate *manufacturedDate;
 @property(copy, nonatomic) NSString *registrationNumber;
 @property(copy, nonatomic) DocumentModel *photo;
+@property(copy, nonatomic) DocumentBase64Model *photoBase64;
 @property(nonatomic) BOOL isAvailable;
 
 
