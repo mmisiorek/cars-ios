@@ -10,8 +10,10 @@
 #import "CarModel.h"
 
 @interface CarEditViewController : UIViewController
+                                    <UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) CarModel *carModel;
+@property (strong, nonatomic) UIImage *selectedCarPhoto;
 
 @property (weak) IBOutlet UIScrollView *scrollView;
 @property (weak) IBOutlet UIView *contentView;
@@ -20,6 +22,8 @@
 @property (weak) IBOutlet UIDatePicker *dateOfManufacturePicker;
 @property (weak) IBOutlet UITextField *registrationNumberField;
 @property (weak) IBOutlet UISwitch *isAvailableSwitch;
+@property (weak) IBOutlet UIButton *chooseCarPhotoButton;
+@property (weak) IBOutlet UIImageView *carPhotoPreview;
 
 - (CarEditViewController*) initWithCarModel:(CarModel*)carModel;
 

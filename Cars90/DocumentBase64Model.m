@@ -13,19 +13,21 @@
 + (NSDictionary*) JSONKeyPathsByPropertyKey {
     return @{
              @"image": @"data",
-             @"original_filename": @"original_filename"
+             @"originalFilename": @"original_filename"
              
              };
 }
 
-+ (NSValueTransformer*) imageDataTransformer {
++ (NSValueTransformer*) imageJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
         
         return nil; 
     } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
         NSData *data = UIImageJPEGRepresentation(value, 1.0);
         
-        return [data base64EncodedDataWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        NSString *dataString = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
+        
+        return [NSString stringWithFormat:@"data:image/jpeg;base64,%@", dataString, nil]; 
     }]; 
 }
 

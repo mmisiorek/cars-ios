@@ -9,6 +9,8 @@
 #import "APIManager.h"
 #import "CarsResponseModel.h"
 #import "CarModel.h"
+#import "UserModel.h"
+#import "AppDelegate.h"
 
 static NSString *const listPath = @"/cars.json";
 static NSString *const carImagePath = @"";
@@ -27,7 +29,7 @@ static NSString *const carImagePath = @"";
 - (NSURLSessionTask*) fetchAllCarsWithSuccess: (void (^)(CarsResponseModel *responseModel)) success
                                 andFailure:(void (^)(NSError *error)) failure{
     
-    return [self GET:listPath parameters:NULL progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [self GET:listPath parameters:[self addUserTokenToParameters:@{}] progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSError* error = nil;
         
@@ -47,15 +49,13 @@ static NSString *const carImagePath = @"";
     
     NSString *url = [NSString stringWithFormat:@"/document/%i/%@/%d/%d", (int)car.photo.networkId, car.photo.token, (int)width, (int)height];
     
-    NSLog(@"url: %@", url);
-    
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     AFImageResponseSerializer *serializer = [AFImageResponseSerializer serializer];
     serializer.imageScale = 1;
     sessionManager.responseSerializer = serializer;
     
-    return [sessionManager GET:url parameters:NULL progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [sessionManager GET:url parameters:[self addUserTokenToParameters:@{}] progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         UIImage *img = (UIImage*) responseObject;
         
         success(img);
@@ -75,7 +75,7 @@ static NSString *const carImagePath = @"";
         NSDictionary *carDictionary = @{ @"car": [carArray objectAtIndex:0] };
         NSString *url = [NSString stringWithFormat:@"/cars/%d.json", (int)car.myId];
         
-        return [self PUT:url parameters:carDictionary success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        return [self PUT:url parameters:[self addUserTokenToParameters:carDictionary] success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *response = (NSDictionary*)responseObject;
             
             if([response objectForKey:@"success"]) {
@@ -93,7 +93,7 @@ static NSString *const carImagePath = @"";
         [singleCarDictionary removeObjectForKey:@"id"];
         NSDictionary *carDictionary = @{ @"car": [NSDictionary dictionaryWithDictionary:singleCarDictionary] };
         
-        return [self POST:@"/cars.json" parameters:carDictionary success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        return [self POST:@"/cars.json" parameters:[self addUserTokenToParameters:carDictionary] success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *response = (NSDictionary*)responseObject;
             
             if([response objectForKey:@"success"]) {
@@ -116,6 +116,48 @@ static NSString *const carImagePath = @"";
     }
 }
 
+- (NSURLSessionTask*) loginWithUsername:(NSString *)username andPassword:(NSString *)password withError:(NSError **)error andSuccess:(void (^)(LoginResponseModel *))success andFailure:(void (^)(LoginResponseModel *, NSArray *))failure {
+    
+    NSDictionary *dic = @{@"user": @{@"username": username, @"password": password}};
+    
+    return [self POST:@"/user/login.json" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *response = (NSDictionary*)responseObject;
+        NSError *error = nil;
+        LoginResponseModel *model = (LoginResponseModel*) [MTLJSONAdapter modelOfClass:[LoginResponseModel class] fromJSONDictionary:response error:&error];
+        
+        if(error == nil && model.isSuccess) {
+            success(model);
+        } else {
+            NSMutableArray *errors = [NSMutableArray arrayWithArray:[self errorArrayToArray:[response objectForKey:@"errors"]]];
+            if(error != nil) {
+                [errors addObject:error];
+            }
+            
+            failure(model, errors);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSArray *errors = [NSArray arrayWithObject:error];
+        
+        failure(nil, errors);
+    }];
+    
+}
+
+- (NSURLSessionTask*) logoutWithSuccess:(void (^)())success andFailure:(void (^)(NSError *))failure {
+    
+    return [self POST:@"/user/logout.json" parameters:[self addUserTokenToParameters:@{}] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }]; 
+}
+
+
+/*
+ #pragma mark - navigation
+*/
+
 - (NSArray*) errorArrayToArray:(NSArray*)arr {
     NSMutableArray *result = [NSMutableArray array];
     
@@ -128,5 +170,19 @@ static NSString *const carImagePath = @"";
     return [NSArray arrayWithArray:result];
 }
 
+- (NSDictionary*) addUserTokenToParameters:(NSDictionary*)dic {
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:dic];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    UserModel* user = appDelegate.user;
+    
+    NSLog(@"juzer %@", user.class);
+    if(user != nil) {
+        NSLog(@"is %@", result);
+        [result setObject:user.token forKey:@"user_token"];
+        NSLog(@"is2 %@", result);
+    }
+    
+    return result;
+}
 
 @end

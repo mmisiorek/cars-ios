@@ -10,6 +10,8 @@
 #import "AFHTTPSessionManager.h"
 #import "CarsResponseModel.h"
 #import "CarModel.h"
+#import "LoginResponseModel.h"
+#import "UserModel.h"
 
 @interface APIManager : AFHTTPSessionManager
 
@@ -21,5 +23,9 @@
                             andFailure: (void (^)(NSError *error)) failure;
 
 - (NSURLSessionTask*) saveCar:(CarModel*)car withError:(NSError*)error andSuccess: (void (^)(CarModel*))success andFailure: (void (^)(CarModel*, NSArray*))failure;
+
+- (NSURLSessionTask*) loginWithUsername:(NSString*)username andPassword:(NSString*)password withError:(NSError**)error andSuccess:(void (^)(LoginResponseModel*))success andFailure:(void (^)(LoginResponseModel*, NSArray*))failure;
+
+- (NSURLSessionTask*) logoutWithSuccess: (void (^)())success andFailure: (void (^)(NSError*))error;
 
 @end

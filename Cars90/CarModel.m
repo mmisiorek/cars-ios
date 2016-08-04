@@ -30,7 +30,8 @@
              @"registrationNumber": @"registration_number",
              @"photo": @"photo",
              @"photoBase64": @"photo_base64",
-             @"isAvailable": @"is_available"
+             @"isAvailable": @"is_available",
+             @"user": @"user"
              };
 }
 
@@ -80,9 +81,12 @@
         }
         
         NSValueTransformer *transformer = [MTLJSONAdapter dictionaryTransformerWithModelClass:DocumentBase64Model.class];
-        
         return [transformer reverseTransformedValue:value];
     }];
+}
+
++(NSValueTransformer*) userJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:UserModel.class]; 
 }
 
 @end

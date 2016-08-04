@@ -9,7 +9,7 @@
 #import <Mantle/Mantle.h>
 #import <UIKit/UIKit.h>
 
-@interface DocumentBase64Model : MTLModel
+@interface DocumentBase64Model : MTLModel <MTLJSONSerializing>
 
 @property(copy, nonatomic) UIImage *image;
 @property(copy, nonatomic) NSString *originalFilename; 

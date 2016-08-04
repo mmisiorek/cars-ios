@@ -11,6 +11,7 @@
 #import "MTLModel.h"
 #import "DocumentModel.h"
 #import "DocumentBase64Model.h"
+#import "UserModel.h"
 
 @interface CarModel : MTLModel <MTLJSONSerializing>
 
@@ -24,6 +25,7 @@
 @property(copy, nonatomic) NSString *registrationNumber;
 @property(copy, nonatomic) DocumentModel *photo;
 @property(copy, nonatomic) DocumentBase64Model *photoBase64;
+@property(copy, nonatomic) UserModel *user;
 @property(nonatomic) BOOL isAvailable;
 
 

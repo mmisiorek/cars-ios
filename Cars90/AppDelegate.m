@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CarsTableViewController.h"
+#import "MainTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,15 +18,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    CarsTableViewController *carController = [[CarsTableViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:carController];
+     UIViewController *tabController = [[MainTabBarViewController alloc] init];
     
-    [self.window setRootViewController:navController];
-    [self.window makeKeyAndVisible];
+     [self.window setRootViewController:tabController];
+     [self.window makeKeyAndVisible];
     
-    return YES;
+     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -48,6 +48,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setUser:(UserModel *)user {
+     self->_user = user;
+     
+     MainTabBarViewController *controller = (MainTabBarViewController*)self.window.rootViewController;
+     [controller setViewControllers]; 
 }
 
 - (NSString*)getSettingForKey:(NSString*)key {

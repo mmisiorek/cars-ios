@@ -8,6 +8,7 @@
 
 #import "CarEditViewController.h"
 #import "AppDelegate.h"
+#import "DocumentBase64Model.h"
 
 @interface CarEditViewController ()
 
@@ -19,6 +20,7 @@
     self = [super init];
     
     self.carModel = carModel;
+    self.navigationController.navigationBar.translucent = NO;
     
     return self;
 }
@@ -27,17 +29,48 @@
     [super viewDidLoad];
     [self updateScrollView];
     
-    [self.brandField setText:self.carModel.brand];
-    [self.modelField setText:self.carModel.model];
-    [self.registrationNumberField setText:self.carModel.registrationNumber];
-    [self.isAvailableSwitch setSelected:self.carModel.isAvailable];
-    //[self.dateOfManufacturePicker setDate:self.carModel.manufacturedDate];
-    
-    NSLog(@"my log %@", self.carModel.registrationNumber);
-    
-    self.navigationItem.title = [NSString stringWithFormat:@"Edit of %@ %@", self.carModel.brand, self.carModel.model];
+    if(self.carModel) {
+        [self.brandField setText:self.carModel.brand];
+        [self.modelField setText:self.carModel.model];
+        [self.registrationNumberField setText:self.carModel.registrationNumber];
+        [self.isAvailableSwitch setSelected:self.carModel.isAvailable];
+        //[self.dateOfManufacturePicker setDate:self.carModel.manufacturedDate];
+        
+        NSLog(@"my log %@", self.carModel.registrationNumber);
+        
+        self.navigationItem.title = [NSString stringWithFormat:@"Edit of %@ %@", self.carModel.brand, self.carModel.model];
+    } else {
+        self.navigationItem.title = @"Add a new car";
+    }
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveCar)];
+    
+    [self.chooseCarPhotoButton addTarget:self action:@selector(chooseCarPhotoButtonTouched) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)chooseCarPhotoButtonTouched {
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    
+    pickerController.delegate = self;
+    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
+    self.selectedCarPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.carPhotoPreview setImage:self.selectedCarPhoto];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)clearForm {
+    [self.brandField setText:@""];
+    [self.modelField setText:@""];
+    [self.dateOfManufacturePicker setDate:[NSDate date]];
+    [self.registrationNumberField setText:@""];
+    [self.isAvailableSwitch setOn:NO];
+    [self setSelectedCarPhoto:nil];
 }
 
 - (void)updateScrollView {
@@ -71,6 +104,14 @@
     newCarModel.registrationNumber = self.registrationNumberField.text;
     newCarModel.isAvailable = self.isAvailableSwitch.selected;
     
+    if(self.selectedCarPhoto) {
+        newCarModel.photoBase64 = [[DocumentBase64Model alloc] init];
+        newCarModel.photoBase64.image = self.selectedCarPhoto;
+        newCarModel.photoBase64.originalFilename = @"iOS_photo.jpg";
+    }
+    
+    [self clearForm]; 
+    
     NSError *error;
     
     AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -81,7 +122,9 @@
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            [self.navigationController popViewControllerAnimated:YES]; 
+            if(self.carModel) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
             
         }]];
         

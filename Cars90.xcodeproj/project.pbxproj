@@ -20,11 +20,18 @@
 		671D6EE71C9DBA5A001D0037 /* CarEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671D6EE51C9DBA5A001D0037 /* CarEditViewController.xib */; };
 		67309B4D1C1CE04000581696 /* CarDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67309B4B1C1CE04000581696 /* CarDetailsViewController.m */; };
 		67309B4E1C1CE04000581696 /* CarDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */; };
+		6733CBCA1D4A6E47008510C0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6733CBC81D4A6E47008510C0 /* LoginViewController.m */; };
+		6733CBCB1D4A6E47008510C0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6733CBC91D4A6E47008510C0 /* LoginViewController.xib */; };
+		6736E76C1D4FD347005A71A4 /* LoginResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6736E76B1D4FD347005A71A4 /* LoginResponseModel.m */; };
 		674906751C1A20C900FAE6FC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 674906741C1A20C900FAE6FC /* Settings.bundle */; };
+		6775DE681D4A9B8900DFFF76 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6775DE671D4A9B8900DFFF76 /* UserModel.m */; };
 		67A7E3541C834DCF00CDB4A1 /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7E3531C834DCF00CDB4A1 /* CarModel.m */; };
 		67A7E3571C8351C800CDB4A1 /* CarsResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */; };
 		67A7E35A1C835B1C00CDB4A1 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A7E3591C835B1C00CDB4A1 /* APIManager.m */; };
+		67BA427E1CA6DBC000A04672 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BA427D1CA6DBC000A04672 /* MainTabBarViewController.m */; };
 		67C5EAB31CA3370A0058B985 /* DocumentBase64Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C5EAB21CA3370A0058B985 /* DocumentBase64Model.m */; };
+		67DAC5661D4CD54800D8FC9F /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67DAC5641D4CD54800D8FC9F /* LogoutViewController.m */; };
+		67DAC5671D4CD54800D8FC9F /* LogoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67DAC5651D4CD54800D8FC9F /* LogoutViewController.xib */; };
 		978D44822A949691BCC9F02E /* Pods_Cars90Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20AF1A35DCC79796EE5B87E /* Pods_Cars90Tests.framework */; };
 		D3F4A10AF50208B16E2CF14F /* Pods_Cars90.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137E9CBA801BB63A7F9D1D0 /* Pods_Cars90.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -72,15 +79,27 @@
 		67309B4A1C1CE04000581696 /* CarDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarDetailsViewController.h; path = ../CarDetailsViewController.h; sourceTree = "<group>"; };
 		67309B4B1C1CE04000581696 /* CarDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarDetailsViewController.m; path = ../CarDetailsViewController.m; sourceTree = "<group>"; };
 		67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CarDetailsViewController.xib; path = ../CarDetailsViewController.xib; sourceTree = "<group>"; };
+		6733CBC71D4A6E47008510C0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6733CBC81D4A6E47008510C0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		6733CBC91D4A6E47008510C0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		6736E76A1D4FD347005A71A4 /* LoginResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginResponseModel.h; sourceTree = "<group>"; };
+		6736E76B1D4FD347005A71A4 /* LoginResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginResponseModel.m; sourceTree = "<group>"; };
 		674906741C1A20C900FAE6FC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		6775DE661D4A9B8900DFFF76 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		6775DE671D4A9B8900DFFF76 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		67A7E3521C834DCF00CDB4A1 /* CarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
 		67A7E3531C834DCF00CDB4A1 /* CarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModel.m; sourceTree = "<group>"; };
 		67A7E3551C8351C800CDB4A1 /* CarsResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsResponseModel.h; sourceTree = "<group>"; };
 		67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarsResponseModel.m; sourceTree = "<group>"; };
 		67A7E3581C835B1C00CDB4A1 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		67A7E3591C835B1C00CDB4A1 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		67BA427C1CA6DBC000A04672 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		67BA427D1CA6DBC000A04672 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		67C5EAB11CA3370A0058B985 /* DocumentBase64Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentBase64Model.h; sourceTree = "<group>"; };
 		67C5EAB21CA3370A0058B985 /* DocumentBase64Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentBase64Model.m; sourceTree = "<group>"; };
+		67DAC5631D4CD54800D8FC9F /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
+		67DAC5641D4CD54800D8FC9F /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
+		67DAC5651D4CD54800D8FC9F /* LogoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoutViewController.xib; sourceTree = "<group>"; };
 		6D3EA547B62B68F1EC3115A3 /* Pods-Cars90.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90/Pods-Cars90.release.xcconfig"; sourceTree = "<group>"; };
 		8548082A35495425C69C2069 /* Pods_Cars90UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cars90UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EBE15811EC082E130CAEBD2 /* Pods-Cars90UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cars90UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cars90UITests/Pods-Cars90UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,32 +163,15 @@
 		6714B9BC1C0CE5C000289487 /* Cars90 */ = {
 			isa = PBXGroup;
 			children = (
-				67309B4A1C1CE04000581696 /* CarDetailsViewController.h */,
-				67309B4B1C1CE04000581696 /* CarDetailsViewController.m */,
-				67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */,
-				6714B9F01C0CE6A300289487 /* CarsTableViewController.h */,
-				6714B9F11C0CE6A300289487 /* CarsTableViewController.m */,
 				6714B9C01C0CE5C000289487 /* AppDelegate.h */,
 				6714B9C11C0CE5C000289487 /* AppDelegate.m */,
 				6714B9C91C0CE5C000289487 /* Assets.xcassets */,
 				6714B9CE1C0CE5C000289487 /* Info.plist */,
-				6714B9BD1C0CE5C000289487 /* Supporting Files */,
+				6733CBC11D4A6D2D008510C0 /* Managers */,
+				6733CBBF1D4A6C67008510C0 /* Models */,
 				674906741C1A20C900FAE6FC /* Settings.bundle */,
-				67A7E3521C834DCF00CDB4A1 /* CarModel.h */,
-				67A7E3531C834DCF00CDB4A1 /* CarModel.m */,
-				67A7E3551C8351C800CDB4A1 /* CarsResponseModel.h */,
-				67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */,
-				67A7E3581C835B1C00CDB4A1 /* APIManager.h */,
-				67A7E3591C835B1C00CDB4A1 /* APIManager.m */,
-				6718A6DA1C90B70200EC7DDD /* DocumentModel.h */,
-				6718A6DB1C90B70200EC7DDD /* DocumentModel.m */,
-				671D6ED61C9D63D3001D0037 /* ImageManager.h */,
-				671D6ED71C9D63D3001D0037 /* ImageManager.m */,
-				671D6EE31C9DBA5A001D0037 /* CarEditViewController.h */,
-				671D6EE41C9DBA5A001D0037 /* CarEditViewController.m */,
-				671D6EE51C9DBA5A001D0037 /* CarEditViewController.xib */,
-				67C5EAB11CA3370A0058B985 /* DocumentBase64Model.h */,
-				67C5EAB21CA3370A0058B985 /* DocumentBase64Model.m */,
+				6714B9BD1C0CE5C000289487 /* Supporting Files */,
+				6733CBC01D4A6CF8008510C0 /* ViewControllers */,
 			);
 			path = Cars90;
 			sourceTree = "<group>";
@@ -198,6 +200,75 @@
 				6714B9E41C0CE5C000289487 /* Info.plist */,
 			);
 			path = Cars90UITests;
+			sourceTree = "<group>";
+		};
+		6733CBBF1D4A6C67008510C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				67A7E3521C834DCF00CDB4A1 /* CarModel.h */,
+				67A7E3531C834DCF00CDB4A1 /* CarModel.m */,
+				67A7E3551C8351C800CDB4A1 /* CarsResponseModel.h */,
+				67A7E3561C8351C800CDB4A1 /* CarsResponseModel.m */,
+				67C5EAB11CA3370A0058B985 /* DocumentBase64Model.h */,
+				67C5EAB21CA3370A0058B985 /* DocumentBase64Model.m */,
+				6718A6DA1C90B70200EC7DDD /* DocumentModel.h */,
+				6718A6DB1C90B70200EC7DDD /* DocumentModel.m */,
+				6775DE661D4A9B8900DFFF76 /* UserModel.h */,
+				6775DE671D4A9B8900DFFF76 /* UserModel.m */,
+				6736E76A1D4FD347005A71A4 /* LoginResponseModel.h */,
+				6736E76B1D4FD347005A71A4 /* LoginResponseModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6733CBC01D4A6CF8008510C0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6733CBC21D4A6D50008510C0 /* Car */,
+				67BA427C1CA6DBC000A04672 /* MainTabBarViewController.h */,
+				67BA427D1CA6DBC000A04672 /* MainTabBarViewController.m */,
+				6733CBC61D4A6E03008510C0 /* User */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6733CBC11D4A6D2D008510C0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				67A7E3581C835B1C00CDB4A1 /* APIManager.h */,
+				67A7E3591C835B1C00CDB4A1 /* APIManager.m */,
+				671D6ED61C9D63D3001D0037 /* ImageManager.h */,
+				671D6ED71C9D63D3001D0037 /* ImageManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		6733CBC21D4A6D50008510C0 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				67309B4A1C1CE04000581696 /* CarDetailsViewController.h */,
+				67309B4B1C1CE04000581696 /* CarDetailsViewController.m */,
+				67309B4C1C1CE04000581696 /* CarDetailsViewController.xib */,
+				671D6EE31C9DBA5A001D0037 /* CarEditViewController.h */,
+				671D6EE41C9DBA5A001D0037 /* CarEditViewController.m */,
+				671D6EE51C9DBA5A001D0037 /* CarEditViewController.xib */,
+				6714B9F01C0CE6A300289487 /* CarsTableViewController.h */,
+				6714B9F11C0CE6A300289487 /* CarsTableViewController.m */,
+			);
+			name = Car;
+			sourceTree = "<group>";
+		};
+		6733CBC61D4A6E03008510C0 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6733CBC71D4A6E47008510C0 /* LoginViewController.h */,
+				6733CBC81D4A6E47008510C0 /* LoginViewController.m */,
+				6733CBC91D4A6E47008510C0 /* LoginViewController.xib */,
+				67DAC5631D4CD54800D8FC9F /* LogoutViewController.h */,
+				67DAC5641D4CD54800D8FC9F /* LogoutViewController.m */,
+				67DAC5651D4CD54800D8FC9F /* LogoutViewController.xib */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		679E5472C30B356C266C3AA5 /* Pods */ = {
@@ -337,9 +408,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6733CBCB1D4A6E47008510C0 /* LoginViewController.xib in Resources */,
 				674906751C1A20C900FAE6FC /* Settings.bundle in Resources */,
 				671D6EE71C9DBA5A001D0037 /* CarEditViewController.xib in Resources */,
 				67309B4E1C1CE04000581696 /* CarDetailsViewController.xib in Resources */,
+				67DAC5671D4CD54800D8FC9F /* LogoutViewController.xib in Resources */,
 				6714B9CA1C0CE5C000289487 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,11 +563,16 @@
 			files = (
 				671D6ED81C9D63D3001D0037 /* ImageManager.m in Sources */,
 				6714B9F21C0CE6A300289487 /* CarsTableViewController.m in Sources */,
+				6775DE681D4A9B8900DFFF76 /* UserModel.m in Sources */,
+				6733CBCA1D4A6E47008510C0 /* LoginViewController.m in Sources */,
 				67A7E35A1C835B1C00CDB4A1 /* APIManager.m in Sources */,
 				67309B4D1C1CE04000581696 /* CarDetailsViewController.m in Sources */,
 				6718A6DC1C90B70200EC7DDD /* DocumentModel.m in Sources */,
+				67DAC5661D4CD54800D8FC9F /* LogoutViewController.m in Sources */,
+				6736E76C1D4FD347005A71A4 /* LoginResponseModel.m in Sources */,
 				67C5EAB31CA3370A0058B985 /* DocumentBase64Model.m in Sources */,
 				6714B9C21C0CE5C000289487 /* AppDelegate.m in Sources */,
+				67BA427E1CA6DBC000A04672 /* MainTabBarViewController.m in Sources */,
 				67A7E3541C834DCF00CDB4A1 /* CarModel.m in Sources */,
 				6714B9BF1C0CE5C000289487 /* main.m in Sources */,
 				671D6EE61C9DBA5A001D0037 /* CarEditViewController.m in Sources */,

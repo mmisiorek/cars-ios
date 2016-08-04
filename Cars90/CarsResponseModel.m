@@ -18,7 +18,7 @@
 }
 
 +(NSValueTransformer*) carsJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:CarModel.class]; 
+    return [MTLJSONAdapter arrayTransformerWithModelClass:CarModel.class];
 }
 
 
