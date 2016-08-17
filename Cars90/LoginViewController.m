@@ -17,6 +17,17 @@
 
 @implementation LoginViewController
 
+- (id) initWithApiManager:(APIManager *)apiManager andAppDelegate:(AppDelegate *)appDelegate {
+    self = [super init];
+    
+    if(self) {
+        self->_apiManager = apiManager;
+        self->_appDelegate = appDelegate;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -33,16 +44,15 @@
 }
 
 - (void) onLoginClicked {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSError *error = nil;
     
-    [[appDelegate apiManagerWithForceUpdate:NO] loginWithUsername:self.usernameField.text andPassword:self.passwordField.text withError:&error andSuccess:^(LoginResponseModel *response) {
+    [self.apiManager loginWithUsername:self.usernameField.text andPassword:self.passwordField.text withError:&error andSuccess:^(LoginResponseModel *response) {
         MainTabBarViewController *tabBarViewController = (MainTabBarViewController*)self.parentViewController;
         [tabBarViewController setSelectedIndex:0];
         
         NSLog(@"user %@", response.user);
         
-        [appDelegate setUser:response.user];
+        [self.appDelegate setUser:response.user];
     } andFailure:^(LoginResponseModel *response, NSArray *arr) {
         NSLog(@"failure %@", arr);
     }];

@@ -19,10 +19,14 @@
 
 @implementation CarDetailsViewController
 
-- (id)initWithCarData:(CarModel*) carModel {
+- (id)initWithAPIManager:(APIManager *)apiManager andCarModel:(CarModel *)carModel andCarFlowController:(CarFlowController *)carFlowController {
     self = [super init];
     
-    self.carModel = carModel;
+    if(self) {
+        self->_apiManager = apiManager;
+        self->_carModel = carModel;
+        self->_carFlowController = carFlowController; 
+    }
     
     return self;
 }
@@ -50,13 +54,11 @@
     self.carPhoto.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.title = [NSString stringWithFormat:@"Details of %@ %@", brand, model];
     
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    
     if(self.carModel.photo) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         float imgWidth = MAX(screenRect.size.width, screenRect.size.height);
         
-        [[appDelegate apiManagerWithForceUpdate:NO] fetchImageForCar:self.carModel andWidth:imgWidth andHeight:imgWidth withSuccess:^(UIImage *image) {
+        [self.apiManager fetchImageForCar:self.carModel andWidth:imgWidth andHeight:imgWidth withSuccess:^(UIImage *image) {
             [self prepareCarPhotoImages:image];
             [self updateAccordingToOrientationImageView:self.carPhoto withPortraitImage:self.carPhotoPortrait AndLandscapeImage:self.carPhotoLandscape];
             
@@ -150,9 +152,8 @@
 
 - (void)onClickCarEdit: (id) sender {
     NSLog(@"on click");
-    CarEditViewController *carEditViewController = [[CarEditViewController alloc] initWithCarModel:self.carModel];
     
-    [self.navigationController pushViewController:carEditViewController animated:YES];
+    [self.carFlowController moveToEditWithNavigatorController:self.navigationController andModel:self.carModel];
 }
 
 /*

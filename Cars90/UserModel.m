@@ -7,17 +7,9 @@
 //
 
 #import "UserModel.h"
+#import "MMStandardDateFormatter.h"
 
 @implementation UserModel
-
-+ (NSDateFormatter*) dateFormatter {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSLocale *usPosixLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    [formatter setLocale:usPosixLocale];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-    
-    return formatter;
-}
 
 +(NSDictionary*) JSONKeyPathsByPropertyKey {
     return @{
@@ -31,18 +23,18 @@
 
 +(NSValueTransformer*) createdAtJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] dateFromString:value];
+        return [[MMStandardDateFormatter sharedFormatter] dateFromString:value];
     } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] stringFromDate:value];
+        return [[MMStandardDateFormatter sharedFormatter] stringFromDate:value];
     }];
 }
 
 +(NSValueTransformer*) updatedAtJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] dateFromString:value];
+        return [[MMStandardDateFormatter sharedFormatter] dateFromString:value];
         
     } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] stringFromDate:value];
+        return [[MMStandardDateFormatter sharedFormatter] stringFromDate:value];
     }];
 }
 

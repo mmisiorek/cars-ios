@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CarModel.h"
+#import "APIManager.h"
+#import "CarFlowController.h"
 
 @interface CarDetailsViewController : UIViewController
 
-@property (strong, nonatomic) CarModel *carModel;
+@property (strong, nonatomic, readonly) CarModel *carModel;
+@property (strong, nonatomic, readonly) APIManager *apiManager;
+@property (strong, nonatomic, readonly) CarFlowController *carFlowController; 
 
 @property (weak) IBOutlet UILabel *brandLabel;
 @property (weak) IBOutlet UILabel *modelLabel;
@@ -23,7 +27,7 @@
 @property (weak) IBOutlet UIScrollView *scrollView;
 @property (weak) IBOutlet UIView *contentView;
 
-- (id)initWithCarData:(NSDictionary*)carModel;
+- (id)initWithAPIManager:(APIManager*)apiManager andCarModel:(CarModel*)carModel andCarFlowController:(CarFlowController*)carFlowController;
 - (NSDateFormatter*) dateFormatter;
 
 @end

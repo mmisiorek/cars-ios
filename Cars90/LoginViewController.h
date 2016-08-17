@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIManager.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController : UIViewController
+
+@property (strong, nonatomic, readonly) APIManager *apiManager;
+@property (strong, nonatomic, readonly) AppDelegate *appDelegate;
 
 @property (weak) IBOutlet UITextField *usernameField;
 @property (weak) IBOutlet UITextField *passwordField;
 @property (weak) IBOutlet UIButton *submitButton;
+
+- (id) initWithApiManager:(APIManager*)apiManager andAppDelegate:(AppDelegate*)appDelegate; 
 
 @end

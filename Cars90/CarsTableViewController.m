@@ -9,16 +9,20 @@
 #import "CarsTableViewController.h"
 #import "AppDelegate.h"
 #import "CarDetailsViewController.h"
-#import "APIManager.h"
 #import "CarModel.h"
-
-@interface CarsTableViewController ()
-
-@end
 
 @implementation CarsTableViewController
 
-@synthesize managedObjectContext; 
+- (id) initWithApiManager:(APIManager *)apiManager andCarFlowController:(CarFlowController *)carFlowController{
+    self = [super init];
+    
+    if(self) {
+        self->_apiManager = apiManager;
+        self->_carFlowController = carFlowController;
+    }
+    
+    return self;
+}
 
 - (void)loadView {
   
@@ -38,8 +42,7 @@
     
     self.navigationItem.title = @"My Title";
     
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    [[appDelegate apiManagerWithForceUpdate:NO] fetchAllCarsWithSuccess:^(CarsResponseModel *responseModel) {
+    [self.apiManager fetchAllCarsWithSuccess:^(CarsResponseModel *responseModel) {
         self.cars = responseModel.cars;
         
         UITableView* tableView = (UITableView*) self.view;
@@ -55,12 +58,6 @@
     
     UIBarButtonItem *buttomItem = [[UIBarButtonItem alloc] initWithTitle:@"Update" style:UIBarButtonItemStyleDone target:self action:@selector(onUpdateClicked:)];
     [self.navigationItem setRightBarButtonItem:buttomItem];
-//    NSString *serverLocation = [self getServerLocation];
-//    
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/cars.json", serverLocation]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//        
-//    self.carsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,8 +69,7 @@
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Updating" message:@"The cars are updating" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [[appDelegate apiManagerWithForceUpdate:YES] fetchAllCarsWithSuccess:^(CarsResponseModel *responseModel) {
+    [self.apiManager fetchAllCarsWithSuccess:^(CarsResponseModel *responseModel) {
         self.cars = responseModel.cars;
         
         UITableView *tableView = (UITableView*) self.view;
@@ -117,12 +113,6 @@
         CarModel *car = self.cars[indexPath.row];
         
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", car.brand, car.model];
-//        
-//        NSString *header = @"Car #";
-//        NSString *brand = [car objectForKey:@"brand"];
-//        NSString *model = [car objectForKey:@"model"];
-//        
-//        cell.textLabel.text = [header stringByAppendingFormat:@"%d %@ %@", ((int) indexPath.row)+1, brand, model];
         
     } else {
         cell.textLabel.text = @"No data loaded...";
@@ -136,12 +126,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {    
-    NSDictionary *car = self.cars[indexPath.row];
+    CarModel *car = self.cars[indexPath.row];
     
-    CarDetailsViewController *carDetailController = [[CarDetailsViewController alloc] initWithCarData:car];
-    
-    
-    [self.navigationController pushViewController:carDetailController animated:YES];
+    [self.carFlowController moveToDetailsWithNavigationController:self.navigationController andModel:car];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {

@@ -9,7 +9,7 @@
 #import "MainTabBarViewController.h"
 #import "CarsTableViewController.h"
 #import "CarEditViewController.h"
-#import "LoginViewController.h"
+#import "CarsAssembly.h"
 #import "LogoutViewController.h"
 #import "AppDelegate.h"
 
@@ -19,10 +19,20 @@
 
 @implementation MainTabBarViewController
 
-- (id) init {
+- (id) initWithCarsTableController:(UIViewController *)carsTableController andCarNewController:(UIViewController *)carNewController
+                andLoginController:(UIViewController *)loginController andLogoutController:(UIViewController *)logoutController andAppDelegate:(AppDelegate*)appDelegate{
+    
     self = [super init];
     
-    [self setViewControllers];
+    if(self) {
+        self->_carsTableViewController = carsTableController;
+        self->_carNewViewController = carNewController;
+        self->_loginViewController = loginController;
+        self->_logoutViewController = logoutController;
+        self->_appDelegate = appDelegate;
+        
+        [self setViewControllers];
+    }
     
     return self;
 }
@@ -39,36 +49,28 @@
 }
 
 - (void)setViewControllers {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    CarsAssembly *assembly = [[CarsAssembly new] activate];
+    
     NSMutableArray *controllers = [NSMutableArray new];
-    NSMutableArray *tabBarItems = [NSMutableArray new];
     
-    UIViewController *tableController = [[CarsTableViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] init];
-    [navController setViewControllers:[NSArray arrayWithObject:tableController]];
-    
+    UINavigationController *navController = (UINavigationController*) self.carsTableViewController;
     [navController setTitle:@"List"];
     [navController.tabBarItem setImage:[UIImage imageNamed:@"ListIcon"]];
     [controllers addObject:navController];
     
-    UIViewController *newController = [[CarEditViewController alloc] init];
-    UINavigationController *nav1Controller = [[UINavigationController alloc] init];
-    [nav1Controller setViewControllers:[NSArray arrayWithObject:newController]];
-    
+    UINavigationController *nav1Controller = (UINavigationController*) self.carNewViewController;
     [nav1Controller setTitle:@"New car"];
     [nav1Controller.tabBarItem setImage:[UIImage imageNamed:@"NewIcon"]];
     [controllers addObject:nav1Controller];
     
-    if(appDelegate.user == nil) {
-        UIViewController *loginController = [[LoginViewController alloc] init];
+    if(self.appDelegate.user == nil) {
+        UIViewController *loginController = self.loginViewController;
         
-        [loginController setTitle:@"Login"];
         [loginController.tabBarItem setImage:[UIImage imageNamed:@"LoginIcon"]];
         [controllers addObject:loginController];
     } else {
-        UIViewController *logoutController = [LogoutViewController new];
+        UIViewController *logoutController = self.logoutViewController; 
         
-        [logoutController setTitle:@"Logout"];
         [logoutController.tabBarItem setImage:[UIImage imageNamed:@"LoginIcon"]];
         [controllers addObject:logoutController];
     }

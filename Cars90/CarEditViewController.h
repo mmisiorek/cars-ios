@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CarModel.h"
+#import "APIManager.h"
 
 @interface CarEditViewController : UIViewController
                                     <UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) CarModel *carModel;
+@property (strong, nonatomic, readonly) CarModel *carModel;
 @property (strong, nonatomic) UIImage *selectedCarPhoto;
+@property (strong, nonatomic, readonly) APIManager *apiManager;
 
 @property (weak) IBOutlet UIScrollView *scrollView;
 @property (weak) IBOutlet UIView *contentView;
@@ -25,6 +27,6 @@
 @property (weak) IBOutlet UIButton *chooseCarPhotoButton;
 @property (weak) IBOutlet UIImageView *carPhotoPreview;
 
-- (CarEditViewController*) initWithCarModel:(CarModel*)carModel;
+- (id)initWithAPIManager:(APIManager*)apiManager andCarModel:(CarModel*)carModel;
 
 @end

@@ -6,8 +6,8 @@
 //  Copyright © 2016 Marcin Misiorek. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
 #import "UserModel.h"
+#import "Mantle/Mantle.h"
 
 @interface LoginResponseModel : MTLModel <MTLJSONSerializing>
 

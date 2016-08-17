@@ -16,6 +16,17 @@
 
 @implementation LogoutViewController
 
+- (id)initWithApiManager:(APIManager *)apiManager andAppDelegate:(AppDelegate *)appDelegate {
+    self = [super init];
+    
+    if(self) {
+        self->_apiManager = apiManager;
+        self->_appDelegate = appDelegate;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -27,12 +38,11 @@
 }
 
 - (void)logout {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [[appDelegate apiManagerWithForceUpdate:NO] logoutWithSuccess:^{
+    [self.apiManager logoutWithSuccess:^{
         MainTabBarViewController *tabBarController = (MainTabBarViewController*)self.parentViewController;
         [tabBarController setSelectedIndex:0];
         
-        appDelegate.user = nil;
+        self.appDelegate.user = nil;
         
     } andFailure:^(NSError *error){
         NSLog(@"%@", error);

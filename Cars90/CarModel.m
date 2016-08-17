@@ -7,17 +7,11 @@
 //
 
 #import "CarModel.h"
+#import "CarsAssembly.h"
 
 @implementation CarModel
 
-+ (NSDateFormatter*) dateFormatter {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSLocale *usPosixLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    [formatter setLocale:usPosixLocale];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-    
-    return formatter;
-}
+static NSDateFormatter *dateFormatter = nil;
 
 + (NSDictionary*)JSONKeyPathsByPropertyKey {
     return @{
@@ -37,27 +31,27 @@
 
 +(NSValueTransformer*) createdAtJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] dateFromString:value];
+        return [[self defaultDateFormatter] dateFromString:value];
         
     } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] stringFromDate:value];
+        return [[self defaultDateFormatter] stringFromDate:value];
     }];
 }
 
 +(NSValueTransformer*) updatedAtJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] dateFromString:value];
+        return [[self defaultDateFormatter] dateFromString:value];
         
     } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] stringFromDate:value];
+        return [[self defaultDateFormatter] stringFromDate:value];
     }];
 }
 
 +(NSValueTransformer*) manufacturedDateJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] dateFromString:value];
+        return [[self defaultDateFormatter] dateFromString:value];
     } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [[self dateFormatter] stringFromDate:value];
+        return [[self defaultDateFormatter] stringFromDate:value];
     }];
 }
 
@@ -86,7 +80,16 @@
 }
 
 +(NSValueTransformer*) userJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:UserModel.class]; 
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:UserModel.class];
+}
+
++(NSDateFormatter*) defaultDateFormatter {
+    if(dateFormatter == nil) {
+        CarsAssembly *assembly = [[CarsAssembly new] activate];
+        dateFormatter = [assembly defaultDateFormatter];
+    }
+    
+    return dateFormatter; 
 }
 
 @end

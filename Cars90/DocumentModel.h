@@ -6,7 +6,7 @@
 //  Copyright © 2016 Marcin Misiorek. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import "Mantle/Mantle.h"
 
 @interface DocumentModel : MTLModel <MTLJSONSerializing>
 

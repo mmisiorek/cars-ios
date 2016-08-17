@@ -16,11 +16,15 @@
 
 @implementation CarEditViewController
 
-- (CarEditViewController*)initWithCarModel:(CarModel*)carModel {
+- (id) initWithAPIManager:(APIManager *)apiManager andCarModel:(CarModel *)carModel {
     self = [super init];
     
-    self.carModel = carModel;
-    self.navigationController.navigationBar.translucent = NO;
+    if(self) {
+        self->_carModel = carModel;
+        self->_apiManager = apiManager;
+        
+        self.navigationController.navigationBar.translucent = NO;
+    }
     
     return self;
 }
@@ -81,8 +85,6 @@
     [self.scrollView setContentSize:CGSizeMake(newRect.size.width, newRect.size.height)];
     [self.scrollView setFrame:CGRectMake(0,0,screenRect.size.width, screenRect.size.height)];
     [self.contentView setFrame:newRect];
-    
-    NSLog(@"screen %f and content %f and scroll %f", screenRect.size.width, self.contentView.bounds.size.width, self.scrollView.bounds.size.width);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,9 +116,7 @@
     
     NSError *error;
     
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    
-    [[appDelegate apiManagerWithForceUpdate:NO] saveCar:newCarModel withError:error andSuccess:^(CarModel *carModel) {
+    [self.apiManager saveCar:newCarModel withError:error andSuccess:^(CarModel *carModel) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Send" message:@"The car has been successufully saved" preferredStyle: UIAlertControllerStyleAlert];
         
