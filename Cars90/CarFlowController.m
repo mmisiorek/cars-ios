@@ -11,41 +11,27 @@
 
 @implementation CarFlowController
 
-- (id) initWithEditControllerCreator:(ObjectCreator *)editControllerCreator andDetailsControllerCreator:(ObjectCreator *)detailsControllerCreator {
+- (id) initWithAssembly:(CarsAssembly*)assembly {
     self = [super init];
     
+    NSLog(@"flow controller");
     if(self) {
-        self->_editControllerCreator = editControllerCreator;
-        self->_detailsControllerCreator = detailsControllerCreator; 
+        self->_assembly = assembly;
     }
     
     return self;
 }
 
 - (void)moveToDetailsWithNavigationController:(UINavigationController *)navigationController andModel:(CarModel *)car {
-    NSError *error = nil;
-    
-    [self.detailsControllerCreator setParameters:@{@"car": car}];
-    UIViewController *detailsController = [self.detailsControllerCreator createWithError:&error];
-    
-    if(!error) {
-        return;
-    }
+    UIViewController *detailsController = [self.assembly carDetailsViewControllerForCarModel:car];
     
     [navigationController pushViewController:detailsController animated:YES];
 }
 
 - (void)moveToEditWithNavigatorController:(UINavigationController *)navigationController andModel:(CarModel *)car {
-    NSError *error = nil;
+    UIViewController *editController = [self.assembly carEditViewControllerForCarModel:car]; 
     
-    [self.editControllerCreator setParameters:@{@"car": car}];
-    UIViewController *editController = (UIViewController*) [self.editControllerCreator createWithError:&error];
-    
-    if(!error) {
-        return;
-    }
-    
-    [navigationController pushViewController:editController animated:YES]; 
+    [navigationController pushViewController:editController animated:YES];
 }
 
 @end

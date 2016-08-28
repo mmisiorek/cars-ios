@@ -11,8 +11,6 @@
 #import "LogoutViewController.h"
 #import "CarEditViewController.h"
 #import "CarDetailsViewController.h"
-#import "CarEditViewControllerCreator.h"
-#import "CarDetailsViewControllerCreator.h"
 #import "CarsTableViewController.h"
 #import "MainTabBarViewController.h"
 
@@ -103,24 +101,20 @@
     }];
 }
 
-- (UIViewController*) carEditViewControllerForParameters:(NSDictionary*)params {
+- (UIViewController*) carEditViewControllerForCarModel:(CarModel*)car {
     return [TyphoonDefinition withClass:[CarEditViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithAPIManager:andCarModel:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self apiManager]];
-            [initializer injectParameterWith:[TyphoonDefinition withFactory:params selector:@selector(objectForKey:) parameters:^(TyphoonMethod *factoryMethod) {
-                [factoryMethod injectParameterWith:@"car"];
-            }]];
+            [initializer injectParameterWith:car];
         }];
     }];
 }
 
-- (UIViewController*) carDetailsViewControllerForParameters:(NSDictionary*)params {
+- (UIViewController*) carDetailsViewControllerForCarModel:(CarModel *)car {
     return [TyphoonDefinition withClass:[CarDetailsViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithAPIManager:andCarModel:andCarFlowController:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self apiManager]];
-            [initializer injectParameterWith:[TyphoonDefinition withFactory:params selector:@selector(objectForKey:) parameters:^(TyphoonMethod *factoryMethod) {
-                [factoryMethod injectParameterWith:@"car"];
-            }]];
+            [initializer injectParameterWith:car];
             [initializer injectParameterWith:[self carFlowController]]; 
         }];
     }];
@@ -137,23 +131,6 @@
 
 - (CarFlowController*)carFlowController {
     return [TyphoonDefinition withClass:[CarFlowController class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithEditControllerCreator:andDetailsControllerCreator:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:[self carEditViewControllerCreator]];
-            [initializer injectParameterWith:[self carDetailsViewControllerCreator]]; 
-        }];
-    }];
-}
-
-- (ObjectCreator*) carEditViewControllerCreator {
-    return [TyphoonDefinition withClass:[CarEditViewControllerCreator class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(initWithAssembly:) parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:self];
-        }];
-    }];
-}
-
-- (ObjectCreator*) carDetailsViewControllerCreator {
-    return [TyphoonDefinition withClass:[CarDetailsViewControllerCreator class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithAssembly:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:self];
         }];

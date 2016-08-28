@@ -9,17 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "CarsAssembly.h"
 #import "CarModel.h"
-#import "ObjectCreator.h"
 
-@class ObjectCreator;
-
+@class CarsAssembly; 
 
 @interface CarFlowController : NSObject
 
-@property (strong, nonatomic, readonly) ObjectCreator* editControllerCreator;
-@property (strong, nonatomic, readonly) ObjectCreator* detailsControllerCreator;
+@property (strong, nonatomic, readonly) CarsAssembly *assembly;
 
-- (id) initWithEditControllerCreator:(ObjectCreator*)editControllerCreator andDetailsControllerCreator:(ObjectCreator*)detailsControllerCreator;
+- (id) initWithAssembly:(CarsAssembly*)assembly;
 
 - (void)moveToDetailsWithNavigationController:(UINavigationController*)navigationController andModel:(CarModel*)car;
 - (void)moveToEditWithNavigatorController:(UINavigationController*)navigationController andModel:(CarModel*)car;

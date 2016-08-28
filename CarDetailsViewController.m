@@ -25,7 +25,9 @@
     if(self) {
         self->_apiManager = apiManager;
         self->_carModel = carModel;
-        self->_carFlowController = carFlowController; 
+        self->_carFlowController = carFlowController;
+        
+        NSLog(@"model %@", carModel);
     }
     
     return self;
@@ -68,7 +70,7 @@
     }
     
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCarEdit:)];
-    [self.navigationItem setRightBarButtonItem:barButtonItem];
+    [self.navigationItem setRightBarButtonItem:barButtonItem]; 
     
 }
 
@@ -151,8 +153,6 @@
 }
 
 - (void)onClickCarEdit: (id) sender {
-    NSLog(@"on click");
-    
     [self.carFlowController moveToEditWithNavigatorController:self.navigationController andModel:self.carModel];
 }
 

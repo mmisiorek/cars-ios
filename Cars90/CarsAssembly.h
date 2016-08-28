@@ -10,9 +10,9 @@
 #import "APIManager.h"
 #import "ImageManager.h"
 #import "AppDelegate.h"
-#import "ObjectCreator.h"
 #import "CarFlowController.h"
 #import "UserFlowController.h"
+#import "CarModel.h"
 
 @class CarFlowController; 
 
@@ -33,14 +33,11 @@
 - (UIViewController*) loginViewController;
 - (UIViewController*) logoutViewController;
 - (UIViewController*) carNewViewController; 
-- (UIViewController*) carEditViewControllerForParameters:(NSDictionary*)params;
-- (UIViewController*) carDetailsViewControllerForParameters:(NSDictionary*)params;
+- (UIViewController*) carEditViewControllerForCarModel:(CarModel*)car;
+- (UIViewController*) carDetailsViewControllerForCarModel:(CarModel*)car;
 - (UIViewController*) carsTableViewController;
 
 - (CarFlowController*)carFlowController;
-
-- (ObjectCreator*)carEditViewControllerCreator;
-- (ObjectCreator*)carDetailsViewControllerCreator;
 
 // settings
 
